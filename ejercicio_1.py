@@ -11,10 +11,16 @@ def validar_correo(correo):
     Returns:
         bool: True si el correo es válido, False en caso contrario.
     """
-    # Patrón para un correo electrónico básico
+    # Explicación detallada del patrón:
+    # ^                  -> Inicio de la cadena
+    # [\w\.-]+           -> Uno o más caracteres de palabra, punto o guion (usuario)
+    # @                  -> El símbolo de arroba
+    # [\w\.-]+           -> Uno o más caracteres de palabra, punto o guion (dominio)
+    # \.                 -> Un punto literal
+    # [a-zA-Z]{2,}       -> Al menos dos letras para el TLD (Top-Level Domain)
+    # $                  -> Fin de la cadena
     patron = r'^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$'
     
-    # Retorna True si toda la cadena coincide con el patrón
     return bool(re.fullmatch(patron, correo))
 
 # --- Casos de prueba ---
